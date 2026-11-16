@@ -1,0 +1,13 @@
+{
+  "name": "create_and_move_task_in_generated_clone",
+  "steps": [
+    {"name":"open_new_task","action":"click","locator":{"css":"#new-task"}},
+    {"name":"fill_title","action":"fill","locator":{"css":"#field-title"},"value":"Trace recording example"},
+    {"name":"select_column","action":"select","locator":{"css":"#field-column"},"value":"Ready"},
+    {"name":"select_priority","action":"select","locator":{"css":"#field-priority"},"value":"P0"},
+    {"name":"create_task","action":"click","locator":{"css":"#save-task"}},
+    {"name":"open_task","action":"click","locator":{"role":"button","name":"Open task Trace recording example"}},
+    {"name":"change_column","action":"select","locator":{"css":"#field-column"},"value":"Work in progress"},
+    {"name":"save_task","action":"click","locator":{"css":"#save-task"}}
+  ]
+}

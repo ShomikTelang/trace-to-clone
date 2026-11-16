@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en"><head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Clone Research · Kanban board</title>
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+  <div class="app">
+    <header class="global-nav">
+      <div class="logo"><span class="logo-mark">K</span><span>TraceClone</span><span class="logo-divider"></span><span class="muted header-product">Kanboard environment</span></div>
+      <div class="nav-right"><span class="env-label"><span class="green-dot"></span> Synthetic environment</span><div class="avatar" title="Demo user">DU</div></div>
+    </header>
+    <main>
+      <div class="breadcrumb"><span>Projects</span><span class="chevron">›</span><strong id="crumb-project">Clone Research</strong></div>
+      <section class="page-title">
+        <div><div class="eyebrow">PROJECT BOARD <span class="lab-pill">ENVIRONMENT 001</span></div><h1 id="project-name">Clone Research</h1><p id="subtitle" class="subtitle"></p></div>
+        <div class="page-actions"><button id="new-task" class="btn primary" type="button"><span class="plus">+</span> New task</button></div>
+      </section>
+      <nav class="tabs" aria-label="Project navigation"><button class="tab active" data-view="board">▦ &nbsp;Board</button><button class="tab" data-view="list">☷ &nbsp;List</button><button class="tab" data-view="activity">◷ &nbsp;Activity</button></nav>
+      <div class="tools"><label class="search-box"><span>⌕</span><input type="search" id="search" placeholder="Filter tasks by title or tag" aria-label="Filter tasks"></label><label class="filter-label">Priority <select id="priority-filter" aria-label="Filter by priority"><option value="">All priorities</option></select></label><label class="check"><input type="checkbox" id="include-closed"> Show closed</label><span class="spacer"></span><span class="task-count" id="task-count"></span></div>
+      <section id="content" class="board" aria-label="Kanban board"></section>
+      <div class="footer-note"><span class="green-dot"></span> Local synthetic clone · State persisted to SQLite · Built for agent evaluation</div>
+    </main>
+  </div>
+  <div id="modal-backdrop" class="modal-backdrop hidden" role="presentation">
+    <section class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <div class="modal-header"><div><div class="eyebrow">TASK DETAILS</div><h2 id="modal-title">New task</h2></div><button id="close-modal" class="icon-btn" aria-label="Close dialog">×</button></div>
+      <form id="task-form">
+        <label class="field">Title <span class="required">*</span><input id="field-title" name="title" required maxlength="200" placeholder="What needs to be done?" autocomplete="off"></label>
+        <label class="field">Description <textarea id="field-description" name="description" rows="3" placeholder="Add relevant details..."></textarea></label>
+        <div class="form-grid"><label class="field">Column <select id="field-column" name="column"></select></label><label class="field">Priority <select id="field-priority" name="priority"></select></label></div>
+        <label class="field">Tags <input id="field-tags" name="tags" placeholder="frontend, bug" autocomplete="off"><span class="field-hint">Separate tags with commas</span></label>
+        <div id="form-error" class="form-error hidden" role="alert"></div>
+        <div class="modal-actions"><button type="button" id="task-close" class="btn quiet hidden">Close task</button><button type="button" id="task-reopen" class="btn quiet hidden">Reopen task</button><div class="spacer"></div><button type="button" id="cancel-modal" class="btn secondary">Cancel</button><button type="submit" id="save-task" class="btn primary">Create task</button></div>
+      </form>
+    </section>
+  </div>
+  <div id="toast" class="toast hidden" role="status"></div>
+  <script type="module" src="/static/app.js"></script>
+</body></html>

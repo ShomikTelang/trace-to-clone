@@ -1,0 +1,40 @@
+{
+  "schema_version": "0.1",
+  "app_id": "kanboard_mvp",
+  "title": "Clone Research",
+  "subtitle": "A bounded, Kanboard-inspired synthetic task environment",
+  "reference": {
+    "name": "Kanboard",
+    "url": "http://localhost:8081",
+    "source": "Seed specification curated from documented Kanboard task/board semantics, not automatically inferred from a live reference",
+    "scope": "One project board, task creation/editing, columns, priorities, closing/reopening, persistence"
+  },
+  "columns": [
+    {"id": "Backlog", "label": "Backlog"},
+    {"id": "Ready", "label": "Ready"},
+    {"id": "Work in progress", "label": "Work in progress"},
+    {"id": "Done", "label": "Done"}
+  ],
+  "priorities": ["P0", "P1", "P2", "P3"],
+  "default_column": "Backlog",
+  "default_priority": "P1",
+  "fields": [
+    {"name": "title", "type": "text", "required": true},
+    {"name": "description", "type": "textarea", "required": false},
+    {"name": "priority", "type": "select", "options_from": "priorities"},
+    {"name": "column", "type": "select", "options_from": "columns"},
+    {"name": "tags", "type": "string_list", "required": false}
+  ],
+  "actions": [
+    {"id":"create_task", "verb":"POST", "path":"/api/tasks", "effect":"insert task"},
+    {"id":"edit_task", "verb":"PATCH", "path":"/api/tasks/{id}", "effect":"update title/description/priority/column/tags"},
+    {"id":"move_task", "verb":"PATCH", "path":"/api/tasks/{id}", "effect":"update column"},
+    {"id":"close_task", "verb":"POST", "path":"/api/tasks/{id}/close", "effect":"is_active=false"},
+    {"id":"reopen_task", "verb":"POST", "path":"/api/tasks/{id}/reopen", "effect":"is_active=true"}
+  ],
+  "initial_tasks": [
+    {"title":"Review signup form","description":"Verify the error states on the signup form.","priority":"P2","column":"Backlog","tags":["frontend"]},
+    {"title":"Write API regression tests","description":"Cover create, update, and close actions.","priority":"P1","column":"Ready","tags":["testing"]},
+    {"title":"Improve board accessibility","description":"Check keyboard navigation and labels.","priority":"P2","column":"Work in progress","tags":["accessibility"]}
+  ]
+}

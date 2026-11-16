@@ -1,0 +1,18 @@
+.venv/
+__pycache__/
+.pytest_cache/
+*.pyc
+.DS_Store
+artifacts/
+.env
+*.db
+*.sqlite
+*.sqlite3
+reference/storage-state.json
+generated/*
+!generated/.gitkeep
+# Browser authentication and browser-generated data
+reference/*storage-state*.json
+playwright-report/
+test-results/
+*.trace.zip

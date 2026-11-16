@@ -1,0 +1,13 @@
+services:
+  kanboard:
+    image: kanboard/kanboard:v1.2.57
+    ports:
+      - "127.0.0.1:8081:80"
+    environment:
+      PLUGIN_INSTALLER: "false"
+    volumes:
+      - kanboard_data:/var/www/app/data
+      - kanboard_plugins:/var/www/app/plugins
+volumes:
+  kanboard_data:
+  kanboard_plugins:

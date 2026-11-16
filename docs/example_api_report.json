@@ -1,0 +1,43 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "name": "spec exposes at least two columns",
+      "passed": true
+    },
+    {
+      "name": "reset returns exact seed count",
+      "passed": true
+    },
+    {
+      "name": "creation persisted",
+      "passed": true
+    },
+    {
+      "name": "move and tags stored",
+      "passed": true
+    },
+    {
+      "name": "closed task hidden from default listing",
+      "passed": true
+    },
+    {
+      "name": "closed task persisted",
+      "passed": true
+    },
+    {
+      "name": "verifier detects exact goal state",
+      "passed": true
+    },
+    {
+      "name": "audit log includes actions",
+      "passed": true
+    },
+    {
+      "name": "reopening restores visibility",
+      "passed": true
+    }
+  ],
+  "url": "http://127.0.0.1:8765",
+  "mode": "api"
+}
